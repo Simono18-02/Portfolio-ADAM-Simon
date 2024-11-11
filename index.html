@@ -391,6 +391,85 @@
 			height: 200px;
 		}
 	}
+	.worked-section {
+		padding: 100px 0;
+		background: rgba(26, 26, 26, 0.7);
+		backdrop-filter: blur(5px);
+	}
+
+	.work-card {
+		display: flex;
+		align-items: center;
+		gap: 50px;
+		background: rgba(45, 45, 45, 0.9);
+		border-radius: 15px;
+		padding: 40px;
+		margin: 20px 0;
+		transition: transform 0.3s ease;
+	}
+
+	.work-content {
+		flex: 1;
+	}
+
+	.work-header {
+		margin-bottom: 20px;
+	}
+
+	.work-date {
+		color: var(--secondary-color);
+		font-size: 1.1rem;
+		margin-bottom: 10px;
+	}
+
+	.work-title {
+		font-size: 2rem;
+		margin-bottom: 15px;
+		color: var(--text-color);
+	}
+
+	.work-description {
+		line-height: 1.8;
+		margin-bottom: 20px;
+	}
+
+	.work-tech {
+		display: flex;
+		gap: 10px;
+		flex-wrap: wrap;
+	}
+
+	.tech-tag {
+		background: rgba(52, 152, 219, 0.2);
+		padding: 5px 15px;
+		border-radius: 20px;
+		font-size: 0.9rem;
+		color: var(--secondary-color);
+	}
+
+	.work-video {
+		flex: 0 0 400px;
+		border-radius: 10px;
+		overflow: hidden;
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+	}
+
+	.work-video video {
+		width: 100%;
+		height: 300px;
+		object-fit: cover;
+	}
+
+	@media (max-width: 768px) {
+		.work-card {
+			flex-direction: column;
+		}
+		
+		.work-video {
+			flex: 0 0 auto;
+			width: 100%;
+		}
+	}
 	</style>
 </head>
 <body>
@@ -428,7 +507,7 @@
 					<p>En tant que président du club de robotique de l'école, j'ai également développé des compétences en gestion de projet et en leadership. Ce rôle m'a permis de diriger des équipes, de coordonner des projets ambitieux et d'encadrer les membres du club dans le développement de leurs compétences techniques et organisationnelles.</p>
 				</div>
 				<div class="profile-image-container">
-					<img src="./images/profil.png" alt="Simon Adam" class="profile-image">
+					<img src="Profil.png" alt="Simon Adam" class="profile-image">
 				</div>
 			</div>
 		</div>
@@ -457,32 +536,74 @@
         </div>
     </section>
 
-    <section id="competences">
-        <div class="container">
-            <h2 class="section-title">Compétences</h2>
-            <div class="skills-container">
-                <div class="skill-card">
-                    <i class="fas fa-cogs"></i>
-                    <h3>FAO CAO</h3>
+	<section id="competences">
+		<div class="container">
+			<h2 class="section-title">Compétences</h2>
+			<div class="skills-container">
+				<div class="skill-card">
+					<i class="fas fa-cogs"></i>
+					<h3>FAO CAO</h3>
+					<p>SolidWorks</p>
+					<p>CATIA</p>
+					<p>Fusion 360</p>
+					<p>Esprit</p>
+				</div>
+				<div class="skill-card">
+					<i class="fas fa-code"></i>
+					<h3>Programmation</h3>
+					<p>Python</p>
+					<p>SQL</p>
+					<p>C++</p>
+					<p>HTML</p>
+				</div>
+				<div class="skill-card">
+					<i class="fas fa-industry"></i>
+					<h3>Industrialisation</h3>
+					<p>Grafcet</p>
+					<p>Ordre de fabrication</p>
+					<p>Gamme d'usinage</p>
+				</div>
+				<div class="skill-card">
+					<i class="fas fa-language"></i>
+					<h3>Langues</h3>
+					<p>Français</p>
+					<p>Anglais (B2)</p>
+					<p>Espagnol</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<section id="experience" class="worked-section">
+    <div class="container">
+        <h2 class="section-title">Où J'ai Travaillé</h2>
+        
+        <div class="work-card">
+            <div class="work-content">
+                <div class="work-header">
+                    <div class="work-date">2024 • Stage Assistant Ingénieur</div>
+                    <h3 class="work-title">Rousselet Robatel</h3>
                 </div>
-                <div class="skill-card">
-                    <i class="fas fa-code"></i>
-                    <h3>Programmation</h3>
-                    <p>Python, SQL, C++, HTML</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-industry"></i>
-                    <h3>Industrialisation</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-language"></i>
-                    <h3>Langues</h3>
-                    <p>Français, Anglais (B2), Espagnol</p>
+                <p class="work-description">
+                    Mise en place d'un système de FAO pour les centres d'usinage 5 axes de l'atelier.
+                    Identification des dysfonctionnements techniques et mise en œuvre de solutions.
+                </p>
+                <div class="work-tech">
+                    <span class="tech-tag">FAO</span>
+                    <span class="tech-tag">Usinage 5 axes</span>
+                    <span class="tech-tag">Optimisation</span>
                 </div>
             </div>
+            <div class="work-video">
+                <video autoplay loop muted playsinline>
+                    <source src="./videos/rousselet.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+            </div>
         </div>
-    </section>
-
+    </div>
+	</section>
+	
     <section id="contact">
         <div class="container">
             <h2 class="section-title">Contact</h2>
@@ -493,6 +614,9 @@
             </div>
         </div>
     </section>
+	
+
+
 
 <script>
     // Configuration Three.js avec particules animées

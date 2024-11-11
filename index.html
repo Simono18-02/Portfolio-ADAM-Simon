@@ -490,9 +490,163 @@
 	        width: 100%;
 	    }
 	}
+
+
+
+
+
+	    /* Barre de progression */
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(to right, #3498db, #2ecc71);
+    z-index: 1001;
+    transition: width 0.2s ease;
+}
+
+/* Navigation responsive améliorée */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    z-index: 1000;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Bouton téléchargement CV */
+.cv-download {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--secondary-color);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.cv-download:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
+}
+
+/* Menu hamburger pour mobile */
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+	/* Style mobile */
+	@media (max-width: 768px) {
+	    .menu-toggle {
+	        display: block;
+	    }
+	
+	    nav ul {
+	        position: fixed;
+	        top: 0;
+	        right: -100%;
+	        height: 100vh;
+	        width: 80%;
+	        background: rgba(26, 26, 26, 0.95);
+	        backdrop-filter: blur(10px);
+	        flex-direction: column;
+	        align-items: center;
+	        justify-content: center;
+	        transition: right 0.3s ease;
+	    }
+	
+	    nav ul.active {
+	        right: 0;
+	    }
+	
+	    nav ul li {
+	        margin: 20px 0;
+	    }
+	
+	    nav ul li a {
+	        font-size: 1.3rem;
+	    }
+	}
 	</style>
 </head>
 <body>
+	<!-- Ajoutez ces éléments au début de votre body -->
+	<div class="progress-bar"></div>
+	<button class="menu-toggle">
+	    <span></span>
+	    <span></span>
+	    <span></span>
+	</button>
+	<a href="path/to/your/cv.pdf" download class="cv-download">
+	    <i class="fas fa-download"></i> Télécharger CV
+	</a>
+
+
+
+
+
+
+
+	
     <div id="canvas-container"></div>
     
 	<nav>
@@ -802,4 +956,47 @@
         el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
         observer.observe(el);
     });
+
+
+
+
+
+
+
+	// Barre de progression
+window.addEventListener('scroll', () => {
+    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (window.scrollY / totalHeight) * 100;
+    document.querySelector('.progress-bar').style.width = progress + '%';
+});
+
+// Menu mobile
+const menuToggle = document.querySelector('.menu-toggle');
+const navList = document.querySelector('nav ul');
+
+menuToggle.addEventListener('click', () => {
+    navList.classList.toggle('active');
+    menuToggle.classList.toggle('active');
+});
+
+// Animation de scroll fluide améliorée
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        const offset = 100; // Ajustez selon vos besoins
+
+        window.scrollTo({
+            top: target.offsetTop - offset,
+            behavior: 'smooth'
+        });
+
+        // Fermer le menu mobile si ouvert
+        if (navList.classList.contains('active')) {
+            navList.classList.remove('active');
+            menuToggle.classList.remove('active');
+        }
+    });
+});
+
 </script>

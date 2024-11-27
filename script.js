@@ -22,7 +22,9 @@ const translations = {
         skills: "Skills",
         experience: "Experience",
         contact: "Contact",
-        
+
+
+        schoolLink: "Discover my school"
         // Header
         title: "Mechanical Engineering Student",
         
@@ -74,7 +76,9 @@ const translations = {
         skills: "Compétences",
         experience: "Expérience",
         contact: "Contact",
-        
+
+
+        schoolLink: "Découvrir mon école"
         // Header
         title: "Ingénieur en Génie Mécanique",
         
@@ -126,7 +130,8 @@ const translations = {
         skills: "Habilidades",
         experience: "Experiencia",
         contact: "Contacto",
-        
+
+        schoolLink: "Descubrir mi escuela"
         // Header
         title: "Ingeniero Mecánico",
         
@@ -178,7 +183,8 @@ const translations = {
         skills: "Fähigkeiten",
         experience: "Erfahrung",
         contact: "Kontakt",
-        
+            
+        schoolLink: "Meine Schule entdecken"
         // Header
         title: "Maschinenbauingenieur",
         
@@ -230,6 +236,8 @@ const translations = {
         skills: "Competenze",
         experience: "Esperienza",
         contact: "Contatti",
+
+        schoolLink: "Scopri la mia scuola"
         
         // Header
         title: "Ingegnere Meccanico",

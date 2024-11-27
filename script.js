@@ -1,4 +1,10 @@
-// Ajouter au début du fichier, avec les autres constantes
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    // Ajouter au début du fichier, avec les autres constantes
 const cvPaths = {
     fr: './documents/cv_fr.pdf',
     en: './documents/cv_en.pdf',
@@ -7,11 +13,6 @@ const cvPaths = {
     it: './documents/cv_fr.pdf'   // Fallback to French version
 };
 
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Traductions
 const translations = {
     en: {
         // Navigation

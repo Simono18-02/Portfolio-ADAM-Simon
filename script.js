@@ -24,7 +24,7 @@ const translations = {
         contact: "Contact",
 
 
-        schoolLink: "Discover my school"
+        schoolLink: "Discover my school",
         // Header
         title: "Mechanical Engineering Student",
         
@@ -78,7 +78,7 @@ const translations = {
         contact: "Contact",
 
 
-        schoolLink: "Découvrir mon école"
+        schoolLink: "Découvrir mon école",
         // Header
         title: "Ingénieur en Génie Mécanique",
         
@@ -131,7 +131,7 @@ const translations = {
         experience: "Experiencia",
         contact: "Contacto",
 
-        schoolLink: "Descubrir mi escuela"
+        schoolLink: "Descubrir mi escuela",
         // Header
         title: "Ingeniero Mecánico",
         
@@ -184,7 +184,7 @@ const translations = {
         experience: "Erfahrung",
         contact: "Kontakt",
             
-        schoolLink: "Meine Schule entdecken"
+        schoolLink: "Meine Schule entdecken",
         // Header
         title: "Maschinenbauingenieur",
         
@@ -237,7 +237,7 @@ const translations = {
         experience: "Esperienza",
         contact: "Contatti",
 
-        schoolLink: "Scopri la mia scuola"
+        schoolLink: "Scopri la mia scuola",
         
         // Header
         title: "Ingegnere Meccanico",

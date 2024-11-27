@@ -274,21 +274,34 @@ const translations = {
     }
 };
 
-    // Fonction de mise à jour de la langue
-    function updateLanguage(lang) {
-        if (!translations[lang]) return;
-        document.querySelectorAll('[data-translate]').forEach(element => {
-            const key = element.getAttribute('data-translate');
-            if (translations[lang][key]) {
-                if (element.tagName === 'DIV') {
-                    element.innerHTML = translations[lang][key];
-                } else {
-                    element.textContent = translations[lang][key];
-                }
+// Modifier la fonction updateLanguage pour inclure la mise à jour du lien de CV
+function updateLanguage(lang) {
+    if (!translations[lang]) return;
+    
+    // Mise à jour des traductions existantes
+    document.querySelectorAll('[data-translate]').forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[lang][key]) {
+            if (element.tagName === 'DIV') {
+                element.innerHTML = translations[lang][key];
+            } else {
+                element.textContent = translations[lang][key];
             }
-        });
-        document.documentElement.lang = lang;
+        }
+    });
+
+    // Mise à jour du lien de téléchargement du CV
+    const cvDownloadLink = document.querySelector('.cv-download');
+    if (cvDownloadLink) {
+        cvDownloadLink.href = cvPaths[lang];
+        
+        // Mise à jour du nom du fichier téléchargé
+        const fileName = `cv_${lang}.pdf`;
+        cvDownloadLink.setAttribute('download', fileName);
     }
+    
+    document.documentElement.lang = lang;
+}
 
     // Configuration Three.js
     const scene = new THREE.Scene();

@@ -8,9 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
 const cvPaths = {
     fr: './documents/cv_fr.pdf',
     en: './documents/cv_en.pdf',
-    es: './documents/cv_fr.pdf',  // Fallback to French version
-    de: './documents/cv_fr.pdf',  // Fallback to French version
-    it: './documents/cv_fr.pdf'   // Fallback to French version
+    es: './documents/cv_es.pdf',  // Fallback to French version
+    de: './documents/cv_de.pdf',  // Fallback to French version
+    it: './documents/cv_it.pdf'   // Fallback to French version
 };
 
 const translations = {

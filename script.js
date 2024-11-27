@@ -1,3 +1,15 @@
+// Ajouter au début du fichier, avec les autres constantes
+const cvPaths = {
+    fr: './documents/cv_fr.pdf',
+    en: './documents/cv_en.pdf',
+    es: './documents/cv_fr.pdf',  // Fallback to French version
+    de: './documents/cv_fr.pdf',  // Fallback to French version
+    it: './documents/cv_fr.pdf'   // Fallback to French version
+};
+
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     // Traductions
 const translations = {

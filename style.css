@@ -687,3 +687,30 @@ nav ul li a:hover::after {
 .lang-btn.active {
     background: var(--secondary-color);
 }
+
+
+.school-link {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background: var(--secondary-color);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.school-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
+}
+
+/* Adaptation responsive */
+@media (max-width: 768px) {
+    .school-link {
+        bottom: 90px; /* Pour éviter la superposition avec le bouton CV sur mobile */
+    }
+}

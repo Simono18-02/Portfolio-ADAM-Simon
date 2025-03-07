@@ -4,56 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simon ADAM - Portfolio</title>
+    
+    <!-- Meta tags pour SEO et partage social -->
+    <meta name="description" content="Portfolio de Simon Adam, ingénieur en génie mécanique spécialisé en conception et robotique">
+    <meta name="keywords" content="ingénieur, génie mécanique, portfolio, CAO, FAO, robotique">
+    <meta property="og:title" content="Simon ADAM - Ingénieur en Génie Mécanique">
+    <meta property="og:description" content="Portfolio professionnel de Simon Adam, étudiant ingénieur à Centrale Lyon ENISE">
+    <meta property="og:image" content="./images/profil.png">
+    <meta property="og:url" content="https://simonadam.fr">
+    
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
-    <div class="progress-bar"></div>
+    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
     <div id="canvas-container"></div>
+    <!-- Fallback pour Three.js si JavaScript est désactivé -->
+    <noscript>
+        <div class="js-disabled-message">
+            Ce site utilise JavaScript pour améliorer l'expérience utilisateur. Veuillez l'activer pour profiter pleinement du site.
+        </div>
+    </noscript>
 
-	<nav>
-		<button class="menu-toggle" aria-label="Menu">
-			<span></span>
-			<span></span>
-			<span></span>
-		</button>
-		
-		<div class="nav-container">
-		
-			<ul class="nav-links">
-				<li><a href="#accueil" data-translate="home">Accueil</a></li>
-				<li><a href="#about" data-translate="about">À Propos</a></li>
-				<li><a href="#projets" data-translate="projects">Projets</a></li>
-				<li><a href="#competences" data-translate="skills">Compétences</a></li>
-				<li><a href="#experience" data-translate="experience">Expérience</a></li>
-				<li><a href="#contact" data-translate="contact">Contact</a></li>
-			</ul>
-			
-			<!-- Le menu des langues en dehors de nav-links -->
-			<div class="language-dropdown">
-				<button class="dropdown-button">
-					<span class="current-lang">FR</span>
-					<svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 12 12">
-						<path d="M2 4L6 8L10 4" stroke="currentColor" fill="none" stroke-width="2"/>
-					</svg>
-				</button>
-				<ul class="dropdown-content">
-					<li><button class="lang-option" data-lang="fr">Français</button></li>
-					<li><button class="lang-option" data-lang="en">English</button></li>
-					<li><button class="lang-option" data-lang="es">Español</button></li>
-					<li><button class="lang-option" data-lang="de">Deutsch</button></li>
-					<li><button class="lang-option" data-lang="it">Italiano</button></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+    <nav aria-label="Navigation principale">
+        <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-container">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <div class="nav-container" id="nav-container">
+            <ul class="nav-links">
+                <li><a href="#accueil" data-translate="home">Accueil</a></li>
+                <li><a href="#about" data-translate="about">À Propos</a></li>
+                <li><a href="#projets" data-translate="projects">Projets</a></li>
+                <li><a href="#competences" data-translate="skills">Compétences</a></li>
+                <li><a href="#experience" data-translate="experience">Expérience</a></li>
+                <li><a href="#contact" data-translate="contact">Contact</a></li>
+            </ul>
+            
+            <!-- Le menu des langues en dehors de nav-links -->
+            <div class="language-dropdown">
+                <button class="dropdown-button" aria-haspopup="true" aria-expanded="false">
+                    <span class="current-lang">FR</span>
+                    <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+                        <path d="M2 4L6 8L10 4" stroke="currentColor" fill="none" stroke-width="2"/>
+                    </svg>
+                </button>
+                <ul class="dropdown-content" role="menu">
+                    <li role="menuitem"><button class="lang-option" data-lang="fr">Français</button></li>
+                    <li role="menuitem"><button class="lang-option" data-lang="en">English</button></li>
+                    <li role="menuitem"><button class="lang-option" data-lang="es">Español</button></li>
+                    <li role="menuitem"><button class="lang-option" data-lang="de">Deutsch</button></li>
+                    <li role="menuitem"><button class="lang-option" data-lang="it">Italiano</button></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
 
     <header id="accueil">
         <div class="header-content">
             <h1>Simon ADAM</h1>
             <p data-translate="title">Ingénieur en Génie Mécanique</p>
+            
+            <!-- Indicateur de défilement -->
+            <div class="scroll-indicator">
+                <div class="scroll-text" data-translate="scrollDown">Découvrir</div>
+                <div class="scroll-arrow">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -93,7 +116,7 @@
                 </div>
 
                 <div class="project-card">
-                    <h3 class="project-title" data-translate="project2Title">Machine Spécial Agricole</h3>
+                    <h3 class="project-title" data-translate="project2Title">Machine Spéciale Agricole</h3>
                     <p class="project-description" data-translate="project2Desc">
                         Développement d'une machine spéciale pour l'automatisation de la fabrication de pieux en bois
                     </p>
@@ -209,19 +232,24 @@
         <div class="container">
             <h2 class="section-title" data-translate="contactTitle">Contact</h2>
             <div class="contact-info">
-                <a ="mailto:Simon.adam@enise.fr"><i class="fas fa-envelope"></i> Simon.adam@enise.fr</a>
-                <a ="tel:+33610131920"><i class="fas fa-phone"></i> +33 6 10 13 19 20</a>
+                <a href="mailto:Simon.adam@enise.fr"><i class="fas fa-envelope"></i> Simon.adam@enise.fr</a>
+                <a href="tel:+33610131920"><i class="fas fa-phone"></i> +33 6 10 13 19 20</a>
                 <p><i class="fas fa-map-marker-alt"></i> 42000 Saint-Étienne</p>
             </div>
         </div>
     </section>
 
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="current-year">2024</span> Simon Adam. Tous droits réservés.</p>
+        </div>
+    </footer>
 
-    <a href="./documents/cv_fr.pdf" class="cv-download">
+    <a href="./documents/cv_fr.pdf" class="cv-download" download="CV_Simon_Adam.pdf">
         <i class="fas fa-download"></i> <span data-translate="downloadCV">Télécharger CV</span>
     </a>
     
-    <a href="https://enise.ec-lyon.fr/" class="school-link" target="_blank">
+    <a href="https://enise.ec-lyon.fr/" class="school-link" target="_blank" rel="noopener noreferrer">
         <i class="fas fa-university"></i> <span data-translate="schoolLink">Découvrir mon école</span>
     </a>
     
